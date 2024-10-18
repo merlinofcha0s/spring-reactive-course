@@ -1,0 +1,47 @@
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.data.mongodb.core.ReactiveMongoTemplate: DEBUG
+    org.springframework.security: INFO
+    fr.codecake.whatsapp: INFO
+
+spring:
+  application:
+    name: Whatsappclone Backend
+  threads:
+    virtual:
+      enabled: true
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/whatsapp_reactive
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+  webflux:
+    problemdetails:
+      enabled: true
+
+mongock:
+  migration-scan-package:
+    - fr.plb.whatsapp.configuration.dbmigrations
+
+server:
+  port: 8080
+
+application:
+  cors:
+    allowed-origins: "http://localhost:4200"
+    allowed-methods: "*"
+    allowed-headers: "*"
+    exposed-headers: "*"
+    allow-credentials: false
+    max-age: 300
+  jwt:
+    base64-secret: ZTlkOWNiMWU1ZjA1OTgwNDNkNWQwZDE0ZjgyMTFmMTY0ZTc5NDk4OTQxZjdmODlhNTMyODllYjEwNTAxMDYwZjBkZWY4ZGY1YTAxNDg5YTYxYzY0NWQ0ZGVjYzJmNTM2NGI0M2ZmMGU3NjA2MDBiMGMzMDU0ZTY4NWIzMTNjNzA
